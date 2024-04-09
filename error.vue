@@ -1,38 +1,24 @@
 <template>
-  <!-- 这个页面会在应用中未捕获的错误发生时显示 -->
-  <div class="error-page">
-    <el-result>
-      <template #icon>
-        <el-image src="/assets/NotFound/404.jpg" />
+  <div class="err-wrapper">
+    <n-result status="500" title="错误提示" :description="error.messgae">
+      <template #footer>
+        <n-button @click="() => clearError({ redirect: '/' })">
+          回到首页
+        </n-button>
       </template>
-    </el-result>
-    <div class="error-back">
-      <el-button type="primary" @click="backToHome">回到首页</el-button>
-    </div>
+    </n-result>
   </div>
 </template>
 
 <script setup>
-const useRouter = useNuxtApp().$router;
-const backToHome = () => {
-  useRouter.push("/");
-};
+import { NButton, NResult } from "naive-ui";
+const props = defineProps({
+  error: Object,
+});
 </script>
 
 <style lang="scss" scoped>
-:deep(.el-result) {
-  padding: 0;
-}
-.error-page {
-  position: relative;
-  width: 100%;
-  height: 500px;
-  overflow: hidden;
-  .error-back {
-    position: absolute;
-    top: 80%;
-    left: 50%;
-    transform: translateX(-43px);
-  }
+.err-wrapper {
+  margin-top: 200px;
 }
 </style>

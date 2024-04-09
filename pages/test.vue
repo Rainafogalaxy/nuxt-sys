@@ -1,5 +1,5 @@
 <template>
-  <NuxtPage />
+  <div>跳转过来啦</div>
 </template>
 
 <script setup></script>

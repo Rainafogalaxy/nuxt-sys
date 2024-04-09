@@ -1,9 +1,9 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
-// import AutoImport from "unplugin-auto-import/vite";
-// import Components from "unplugin-vue-components/vite";
-// import { NaiveUiResolver } from "unplugin-vue-components/resolvers";
 export default defineNuxtConfig({
   devtools: { enabled: true },
+  css:[
+    "@/assets/main.scss"
+  ],
+  modules: ["nuxt-windicss"],
   build: {
     transpile:
       process.env.NODE_ENV === "production"
